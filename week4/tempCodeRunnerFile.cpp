@@ -2,20 +2,20 @@
 using namespace std;
 
 int main() {
-    int n, k;
+    int n;
+    string str, newStr = "";
 
-    cin >> n >> k;
+    cin >> n >> str;
 
-    int sum = 0, prod = 1;
+    // for (char ch : str) {
+    //     if (ch != ' ') {
+    //         newStr += ch;
+    //     }
+    // }
 
-    while (n) {
-        sum += n % k;
-        prod *= n % k;
+    newStr.erase(n - 1, 1);
 
-        n /= k;
-    }
-
-    cout << prod - sum << '\n';
+    cout << newStr << '\n';
 
     return 0;
 }
