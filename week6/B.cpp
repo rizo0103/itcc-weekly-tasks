@@ -20,22 +20,46 @@ using namespace std;
 const int N = 1e5 + 17;
 
 void solve() {
-    int n;
+    int n, mx = INT_MIN;
 
     cin >> n;
 
-    int x, y, z, sum1 = 0, sum2 = 0, sum3 = 0;
+    char ch[n];
+    vector < int > left(26, 0), right(26, 0);
 
     for (int i = 0; i < n; ++i) {
-        cin >> x >> y >> z;
-        sum1 += x;
-        sum2 += y;
-        sum3 += z;
+        cin >> ch[i];
+
+        ++right[ch[i] - 'a'];
     }
 
-    (sum1 == 0 && sum2 == 0 && sum3 == 0) ? uYu : uNu;
-}
+    int uniqueLeft = 0, uniqueRight = 0;
 
+    for (int i = 0; i < 26; ++i) {
+        if (right[i] > 0) {
+            ++uniqueRight;
+        }
+    }
+
+    for (int i = 0; i < n; ++i) {
+        char current = ch[i];
+
+        ++left[current - 'a'];
+        --right[current - 'a'];
+
+        if (left[current - 'a'] == 1) {
+            ++uniqueLeft;
+        }
+
+        if (right[current - 'a'] == 0) {
+            --uniqueRight;
+        }
+
+        mx = max(mx, uniqueLeft + uniqueRight);
+    }
+
+    cout << mx << '\n';
+}
 int32_t main() {
     ios_base::sync_with_stdio( false );
     cin.tie( nullptr );
@@ -43,7 +67,7 @@ int32_t main() {
 
     int T = 1;
 
-    // cin >> T;
+    cin >> T;
 
     while (T --> 0) {
         solve();

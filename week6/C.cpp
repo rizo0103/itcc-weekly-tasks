@@ -20,20 +20,35 @@ using namespace std;
 const int N = 1e5 + 17;
 
 void solve() {
-    int n;
+    int n, k, mx = INT_MIN;
 
-    cin >> n;
+    cin >> n >> k;
 
-    int x, y, z, sum1 = 0, sum2 = 0, sum3 = 0;
+    vector < int > arr(n);
 
     for (int i = 0; i < n; ++i) {
-        cin >> x >> y >> z;
-        sum1 += x;
-        sum2 += y;
-        sum3 += z;
+        cin >> arr[i];
     }
 
-    (sum1 == 0 && sum2 == 0 && sum3 == 0) ? uYu : uNu;
+    int left = 0, right = 1e10, mid = 0;
+
+    while (left < right) {
+        mid = left + (right - left + 1) / 2;
+        int total = 0;
+
+        for (int i = 0; i < n; ++i) {
+            total += max(0LL, mid - arr[i]);
+        }
+
+        if (total <= k) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    cout << left << '\n';
+
 }
 
 int32_t main() {
@@ -43,7 +58,7 @@ int32_t main() {
 
     int T = 1;
 
-    // cin >> T;
+    cin >> T;
 
     while (T --> 0) {
         solve();
