@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/muham/OneDrive/Desktop/c++/itcc",
-      "program": "c:/Users/muham/OneDrive/Desktop/c++/itcc/build/Debug/outDebug",
+      "cwd": "c:/Users/muham/OneDrive/Desktop/c++/itcc/week7",
+      "program": "c:/Users/muham/OneDrive/Desktop/c++/itcc/week7/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

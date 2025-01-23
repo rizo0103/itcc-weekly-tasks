@@ -23,7 +23,6 @@ ld C(int n) {
     return (n * (n - 1)) / 2.0;
 }
 
-
 void solve() {
     ld a, b;
 
@@ -37,8 +36,6 @@ void solve() {
     int kMin = 0, kMax = C(a - (b - 1)), sum = 0, div = round(a / b);
     bool flag = false;
 
-    // cout << "Count: ";
-
     sum = div * b;
 
     if (sum > a) {
@@ -50,8 +47,6 @@ void solve() {
     } else {
         kMin += C(div) * b;
     }
-
-    // cout << "\n<-----Answer----->\n";
 
     cout << kMin << ' ' << kMax << '\n';
 }

@@ -19,41 +19,28 @@ using namespace std;
 
 const int N = 1e5 + 17;
 
-ld C(int n) {
-    return (n * (n - 1)) / 2.0;
-}
-
-
 void solve() {
     ld a, b;
 
     cin >> a >> b;
 
-    if (a == b) {
-        cout << "0 0\n";
-        return ;
-    }
-
-    int kMin = 0, kMax = C(a - (b - 1)), sum = 0, div = round(a / b);
+    int div = round(a / b), sum = 0;
     bool flag = false;
 
-    // cout << "Count: ";
+    for (int i = 0; i < b; ++i) {
+        if (flag) {
+            sum += div - 1;
+            cout << div - 1 << ' ';
+        } else {
+            sum += div;
+            cout << div << ' ';
+        }
 
-    sum = div * b;
-
-    if (sum > a) {
-        kMin += C(div - 1) * (sum - a);
-        kMin += C(div) * (b - (sum - a));
-    } else if (sum < a) {
-        kMin += C(div + 1) * (a - sum);
-        kMin += C(div) * (b - (a - sum));
-    } else {
-        kMin += C(div) * b;
+        if (sum + div >= a) {
+            --sum;
+            flag = true;
+        }
     }
-
-    // cout << "\n<-----Answer----->\n";
-
-    cout << kMin << ' ' << kMax << '\n';
 }
 
 int32_t main() {
