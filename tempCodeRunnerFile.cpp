@@ -1,36 +1,41 @@
-#include <bits/stdc++.h> // universal library;
+/** @author : asliddin2003 **/
+
+#include <bits/stdc++.h>
 using namespace std;
 
-string toString(int number) {
-    string result = ""; // empty string;
+#define int long long
+#define ld long double
+#define uYu cout<<"YES\n"
+#define uNu cout<<"NO\n"
+#define uyu cout<<"Yes\n"
+#define unu cout<<"No\n"
+#define ff first
+#define ss second
+#define pb push_back
+#define all(a) a.begin(),a.end()
+#define rall(a) a.rbegin(),a.rend()
+#define INT_MAX LONG_LONG_MAX
+#define INT_MIN LONG_LONG_MIN
 
-    while (number) {
-        result = char(number % 10 + '0') + result; // convert digit to char and append to result;
-        number /= 10;
+const int N = 1e5 + 17;
+
+void solve() {
+
+}
+
+int32_t main() {
+    ios_base::sync_with_stdio( false );
+    cin.tie( nullptr );
+    cout.tie( nullptr );
+
+    int T = 1;
+
+    // cin >> T;
+
+    while (T --> 0) {
+        solve();
     }
 
-    return result; // return the result string;
+    return 0;
 }
 
-int toInt(string value) {
-    int result = 0; // initialize result to 0;
-
-    for (char c : value) { // iterate over the characters;
-        result = result * 10 + (c - '0'); // convert char to int and multiply with result;
-    }
-
-    return result; // return the result integer;
-}
-
-int main() {
-    string str = "50"; // start value;
-    int number = 100; // start value;
-    
-    // cin >> str >> number;
-    
-    string converted_number = toString(number) + " Hello";
-    int converted_str = '5' * 10;
-
-    cout << "converted_number: " << converted_number << endl; // converted_number: 100 Hello;
-    cout << "converted_str: " << converted_str << endl; // converted_str: 500;
-}
